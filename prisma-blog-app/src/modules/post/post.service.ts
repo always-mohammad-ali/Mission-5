@@ -12,6 +12,12 @@ const createPost = async (data : Omit<Post, "id" | "createdAt" | "updatedAt" | "
      return result
 }
 
+const getAllPost = async () =>{
+    const allPost = await prisma.post.findMany();
+    return allPost;
+}
+
 export const postService = {
-    createPost
+    createPost,
+    getAllPost
 }
